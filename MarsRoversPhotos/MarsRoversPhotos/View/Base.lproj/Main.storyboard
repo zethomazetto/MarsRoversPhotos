@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wZs-LW-YwY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Mars Rovers Photos-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ListPhotosViewController" customModule="MarsRoversPhotos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="ListPhotosView" customModule="MarsRoversPhotos" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ro9-z0-dDo">
+                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ppp-2r-zr3">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="YQg-Cq-pTY"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ocw-xa-xx3"/>
+                                </connections>
+                            </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Uxx-w6-LN7">
+                                <rect key="frame" x="6" y="64" width="363" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="yIz-uE-wVu"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Curiosity"/>
+                                    <segment title="Opportunity"/>
+                                    <segment title="Spirit"/>
+                                </segments>
+                                <connections>
+                                    <action selector="roverSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="TBK-fY-7i8"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ro9-z0-dDo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="9RZ-pc-Dau"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Uxx-w6-LN7" secondAttribute="trailing" constant="6" id="TOs-qO-6UR"/>
+                            <constraint firstItem="ro9-z0-dDo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VSX-mr-TqV"/>
+                            <constraint firstItem="ro9-z0-dDo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="a3D-Sd-kSD"/>
+                            <constraint firstItem="ro9-z0-dDo" firstAttribute="top" secondItem="Uxx-w6-LN7" secondAttribute="bottom" constant="8" id="kKp-Co-Igr"/>
+                            <constraint firstItem="Uxx-w6-LN7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="r9T-NY-Lc5"/>
+                            <constraint firstItem="Uxx-w6-LN7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="6" id="tOI-Ot-KGL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="listPhotosCollectionView" destination="ro9-z0-dDo" id="Z6a-uY-2MO"/>
+                            <outlet property="roverSegmentedControl" destination="Uxx-w6-LN7" id="pYx-oK-9l8"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mars Rovers Photos" id="3Z2-D6-3ZJ"/>
+                    <connections>
+                        <outlet property="listPhotosView" destination="8bC-Xf-vdC" id="bzJ-La-gVo"/>
+                        <segue destination="0aI-CQ-7aP" kind="show" identifier="ShowPhoto" id="SwC-NC-scn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="904.79999999999995" y="-9.4452773613193415"/>
+        </scene>
+        <!--Show Photo View Controller-->
+        <scene sceneID="Txn-ac-N1u">
+            <objects>
+                <viewController id="0aI-CQ-7aP" customClass="ShowPhotoViewController" customModule="MarsRoversPhotos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t2a-ge-Q7Y" customClass="ShowPhotoView" customModule="MarsRoversPhotos" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YcL-fF-Wyz">
+                                <rect key="frame" x="0.0" y="103" width="375" height="564"/>
+                            </imageView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUr-rp-hat">
+                                <rect key="frame" x="16" y="74" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UUr-rp-hat" firstAttribute="leading" secondItem="VPd-K4-qGy" secondAttribute="leading" constant="16" id="Krl-tC-9fm"/>
+                            <constraint firstItem="YcL-fF-Wyz" firstAttribute="trailing" secondItem="VPd-K4-qGy" secondAttribute="trailing" id="OLS-v9-yk9"/>
+                            <constraint firstItem="YcL-fF-Wyz" firstAttribute="leading" secondItem="VPd-K4-qGy" secondAttribute="leading" id="QLa-hA-Avl"/>
+                            <constraint firstItem="YcL-fF-Wyz" firstAttribute="top" secondItem="VPd-K4-qGy" secondAttribute="top" constant="39" id="Vek-ps-L1y"/>
+                            <constraint firstItem="YcL-fF-Wyz" firstAttribute="bottom" secondItem="VPd-K4-qGy" secondAttribute="bottom" id="Xeb-db-p3j"/>
+                            <constraint firstItem="YcL-fF-Wyz" firstAttribute="top" secondItem="UUr-rp-hat" secondAttribute="bottom" constant="8" id="lvn-59-JDC"/>
+                            <constraint firstItem="VPd-K4-qGy" firstAttribute="trailing" secondItem="UUr-rp-hat" secondAttribute="trailing" constant="16" id="noo-PH-LSZ"/>
+                            <constraint firstItem="UUr-rp-hat" firstAttribute="top" secondItem="VPd-K4-qGy" secondAttribute="top" constant="10" id="xQV-av-QiD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VPd-K4-qGy"/>
+                        <connections>
+                            <outlet property="cameraNameLabel" destination="UUr-rp-hat" id="c4M-qr-LfT"/>
+                            <outlet property="photoImageView" destination="YcL-fF-Wyz" id="xEg-ux-3jW"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="showPhotoView" destination="t2a-ge-Q7Y" id="cfw-u9-lUN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aY6-YB-YvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1716" y="-9.4452773613193415"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7VC-oG-fWa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wZs-LW-YwY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pjb-pW-f4B">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MCk-QG-Iwo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RqK-N2-X1P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34.399999999999999" y="-9.4452773613193415"/>
+        </scene>
+    </scenes>
+</document>

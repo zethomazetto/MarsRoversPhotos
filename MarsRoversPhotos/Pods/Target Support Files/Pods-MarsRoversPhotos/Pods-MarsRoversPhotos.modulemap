@@ -1,0 +1,6 @@
+framework module Pods_MarsRoversPhotos {
+  umbrella header "Pods-MarsRoversPhotos-umbrella.h"
+
+  export *
+  module * { export * }
+}
